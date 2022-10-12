@@ -42,7 +42,8 @@ public class CarteCredit extends CarteBancaire{
         compteING.effectuerVirement(banqueING, compteCible, montant);
     }
 
+    /*
     public boolean effectuerLesVirements(){
 
-    }
+    }*/
 }

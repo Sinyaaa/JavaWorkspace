@@ -21,7 +21,7 @@ public abstract class Formule {
         this.dateDepart = dateDepart;
     }
 
-    public int getDuree() {
+    public double getDuree() {
         return duree;
     }
 

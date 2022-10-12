@@ -10,9 +10,20 @@ public class Sejour extends FormuleSimple{
 
     @Override
     public double CalculerPrix() {
-        String totalDaysOfVoyage = volRetour.getAirportDeparture();
-        double totalPrixSejour = this.CalculerPrix() + (reservation.getPriceByNight() /* * totalDaysOfVoyage */ );
+        double totalPrixSejour = super.CalculerPrix() + (reservation.getPriceByNight()  * (this.duree - 1));
 
         return totalPrixSejour;
+    }
+
+    @Override
+    public String toString() {
+        return "Sejour{" +
+                "reservation=" + reservation +
+                ", prix=" + this.CalculerPrix() +
+                ", volAller=" + volAller +
+                ", volRetour=" + volRetour +
+                ", dateDepart=" + dateDepart +
+                ", duree=" + duree +
+                '}';
     }
 }

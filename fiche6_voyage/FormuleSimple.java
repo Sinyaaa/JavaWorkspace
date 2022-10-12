@@ -1,6 +1,5 @@
 import java.time.LocalDate;
-import java.util.Date;
-import java.util.GregorianCalendar;
+
 
 public class FormuleSimple extends Formule{
 
@@ -17,7 +16,7 @@ public class FormuleSimple extends Formule{
 
     @Override
     public double CalculerPrix() {
-        double totalPrixFormuleSimple = duree * 100;
-        return totalPrixFormuleSimple;
+        this.prix = duree * 10;
+        return prix;
     }
 }
