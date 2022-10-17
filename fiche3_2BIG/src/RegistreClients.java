@@ -73,7 +73,6 @@ public class RegistreClients implements Collection<Client> {
             registre[nbClients-1] = null;
             nbClients--;
             removeAutorisé = false;
-
         }
     }
 
