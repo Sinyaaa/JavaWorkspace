@@ -30,6 +30,9 @@ public class Exercice1 {
 
     private static int compterMotsClefs(File fichier) throws Exception {
         int cpt=0;
+        Set<String> set = new HashSet<String>();
+        -
+
         // � compl�ter
         return cpt;
     }
