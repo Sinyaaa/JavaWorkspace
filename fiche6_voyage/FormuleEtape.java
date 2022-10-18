@@ -55,12 +55,7 @@ public abstract class FormuleEtape extends Formule implements Collection<Iterato
         }
     }
     public double CalculerPrix(){
-        double totalPrixFormuleEtape = 0;
-        Iterator<Etape> iterateurEtape = tableEtape.iterator();
-        while(iterateurEtape.hasNext()) {
-            iterateurEtape.next();
-            totalPrixFormuleEtape += formuleEtapePrice;
-        }
+       return formuleEtapePrice;
     }
 
     private void agrandirTableRegistre() {
