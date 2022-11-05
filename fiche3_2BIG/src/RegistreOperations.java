@@ -58,7 +58,7 @@ public class RegistreOperations implements Collection<Operation> {
     class IterateurOperation implements Iterator<Operation>{
         private int indice = 0;
         private boolean removeAutorisé = false;
-
+ 
         @Override
         public boolean hasNext() {
             return indice<numOperation;

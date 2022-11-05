@@ -37,13 +37,49 @@ public class CarteCredit extends CarteBancaire{
             throw new Exception("Plafond dépasser ! Paiement impossible");
         }
 
+        Operation op = new Operation(compteCible, montant, Operation.VIREMENT_EN_ATTENTE, 0);
+        this.paiementsEnAttente.add(op);
 
         CompteEnBanque compteING = banqueING.getCompteCourant();
         compteING.effectuerVirement(banqueING, compteCible, montant);
     }
 
-    /*
-    public boolean effectuerLesVirements(){
 
-    }*/
+    public boolean effectuerLesVirements() throws Exception {
+        Iterator<Operation> itPaiement = this.paiementsEnAttente.iterator();
+        boolean virementEffectuable = true;
+        CompteCourant cptCourant = (CompteCourant) this.client.getCompteCourant();
+        CompteEnBanque cptDeLaBanque = this.banqueING.getCompteCourant();
+        double montant = 0;
+        double montantIfInsuffisant = 0;
+        while(itPaiement.hasNext()){
+            Operation opPaiement = itPaiement.next();
+            montant = opPaiement.getMontant();
+            if (cptCourant.getSolde() - montant > cptCourant.getDecouvertMax()){
+                cptCourant.effectuerVirement(client, cptDeLaBanque, montant);
+                itPaiement.remove();
+            } else {
+                montantIfInsuffisant += montant;
+                virementEffectuable = false;
+            }
+
+        }
+            if (virementEffectuable == false){
+                Operation opPaiementInsuffisant =new Operation(cptDeLaBanque, montantIfInsuffisant * 0.1, Operation.VIREMENT_EN_ATTENTE, 0);
+                this.paiementsEnAttente.add(opPaiementInsuffisant);
+            }
+
+            return virementEffectuable;
+
+    }
+
+    @Override
+    public String toString() {
+        return "CarteCredit{" +
+                "plafond=" + plafond +
+                ", paiementsEnAttente=" + paiementsEnAttente +
+                ", banqueING=" + banqueING +
+                ", client=" + client +
+                '}';
+    }
 }
