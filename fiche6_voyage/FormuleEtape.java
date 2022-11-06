@@ -3,7 +3,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-public abstract class FormuleEtape extends Formule implements Collection<Iterator> {
+public abstract class FormuleEtape extends Formule implements Collection<Etape> {
     protected int numEtape;
     protected String formuleEtapeName;
     protected double formuleEtapePrice;
@@ -128,7 +128,7 @@ public abstract class FormuleEtape extends Formule implements Collection<Iterato
     }
 
     @Override
-    public boolean addAll(Collection<? extends Iterator> c) {
+    public boolean addAll(Collection<? extends Etape> c) {
         throw new UnsupportedOperationException("operation refusee");
     }
 

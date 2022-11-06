@@ -8,6 +8,8 @@ public class Client {
     private String numTel;
     private CompteEnBanque CompteEpargne;
     private CompteEnBanque CompteCourant;
+
+    private PortefeuilleCartesBancaires porteFeuilleCartes[];
     public Client(String nom, String prenom, String adresse, String dateNaissance, String numTel) {
         super();
         this.nom = nom;

@@ -1,4 +1,4 @@
-public class CarteBancaire  {
+public abstract class CarteBancaire  {
     protected Client client;
 
     public CarteBancaire(Client client) {

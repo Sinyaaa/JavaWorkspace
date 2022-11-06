@@ -1,6 +1,6 @@
 import java.util.Iterator;
 
-public class CarteCredit extends CarteBancaire{
+public abstract class CarteCredit extends CarteBancaire{
     private double plafond;
 
     private RegistreOperations paiementsEnAttente;

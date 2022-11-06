@@ -34,11 +34,11 @@ public class RegistreOperations implements Collection<Operation> {
 
     private void agrandirTableRegistre() {
         int taille = this.tableOperations.length + AUGMENTATION_REGISTRE;
-        Operation[] histTemp = new Operation[ taille ];
+        Operation[] listTemp = new Operation[ taille ];
         for (int i = 0; i < this.numOperation ; i++ ) {
-            histTemp[i] = this.tableOperations[i];
+            listTemp[i] = this.tableOperations[i];
         }
-        this.tableOperations = histTemp;
+        this.tableOperations = listTemp;
     }
 
     public String toString() {
