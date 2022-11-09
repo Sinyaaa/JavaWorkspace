@@ -12,6 +12,6 @@ public class CarteDebitSpecialisee extends CarteDebit{
 
     @Override
     public String toString() {
-        return super.toString() + "spécialisée" + "|" + " nom du fichier image : " + image;
+        return "Carte de débit spécialisée de " + " " + client.getPrenom() + " " + client.getNom() + " | nom du fichier image : " + image;
     }
 }
