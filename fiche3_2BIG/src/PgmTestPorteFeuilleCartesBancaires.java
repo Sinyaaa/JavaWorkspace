@@ -41,11 +41,11 @@ public class PgmTestPorteFeuilleCartesBancaires {
         System.out.println(cptCourantClient1.getSolde());
         System.out.println(cptCourantClient2.getSolde());
 
-
+        iterateurCartes = porteFeuilleCarte.iterator();
 
         while (iterateurCartes.hasNext()){
             CarteBancaire carteBancaire = iterateurCartes.next();
-            cptCourantClient1.effectuerVirement(client1, cptCourantClient2, 500);
+            carteBancaire.payer(cptCourantClient2, 500);
         }
 
         System.out.println(cptCourantClient1.getSolde());
