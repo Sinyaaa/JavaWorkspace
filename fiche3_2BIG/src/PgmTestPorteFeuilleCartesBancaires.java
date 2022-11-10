@@ -29,19 +29,26 @@ public class PgmTestPorteFeuilleCartesBancaires {
             System.out.println(carteBancaire.toString());
         }
 
+
+        System.out.println("---------------------------VIREMENT CPT COURANT CLIENT 1 VERS CPT COURANT CLIENT 2 ------------------------------");
         Client client2 = new Client("Assabban", "Yassin", "89 Rue Albert 1er", "07/04/2001", "0478987898");
         CompteCourant cptCourantClient2 = new CompteCourant("BE562398", 5000, 500);
 
         client2.setCompteCourant(cptCourantClient2);
 
+
+
+        System.out.println(cptCourantClient1.getSolde());
         System.out.println(cptCourantClient2.getSolde());
+
 
 
         while (iterateurCartes.hasNext()){
             CarteBancaire carteBancaire = iterateurCartes.next();
-            carteBancaire.payer(cptCourantClient2, 500);
+            cptCourantClient1.effectuerVirement(client1, cptCourantClient2, 500);
         }
 
+        System.out.println(cptCourantClient1.getSolde());
         System.out.println(cptCourantClient2.getSolde());
 
 
