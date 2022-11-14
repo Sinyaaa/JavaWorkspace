@@ -38,6 +38,7 @@ public class PgmTestPorteFeuilleCartesBancaires {
 
         client2.setCompteCourant(cptCourantClient2);
 
+        System.out.println("Avant-Virement(s)");
 
         System.out.println(cptCourantClient1.getSolde());
         System.out.println(cptCourantClient2.getSolde());

@@ -1,15 +1,16 @@
 import java.util.Iterator;
 
 public abstract class CarteCredit extends CarteBancaire{
-    private double plafond;
+    protected double plafond;
 
-    private RegistreOperations paiementsEnAttente;
-    private Client banqueING;
+    protected RegistreOperations paiementsEnAttente;
+    protected Client banqueING;
 
     public CarteCredit(Client client, double plafond, Client banqueING) {
         super(client);
         this.plafond = plafond;
         this.banqueING = banqueING;
+        this.paiementsEnAttente = new RegistreOperations();
     }
 
     private void retraitOperation(){
@@ -18,16 +19,6 @@ public abstract class CarteCredit extends CarteBancaire{
             iterateurOp.next();
             iterateurOp.remove();
         }
-    }
-
-    private double totalPaiementsEnAttente(){
-        double totalPaiements = 0;
-        Iterator<Operation> iterateurOp = paiementsEnAttente.iterator();
-        while(iterateurOp.hasNext()){
-            Operation operation = iterateurOp.next();
-           totalPaiements += operation.getMontant();
-        }
-        return totalPaiements;
     }
 
     public void payer(CompteEnBanque compteCible, double montant) throws Exception {
@@ -44,6 +35,15 @@ public abstract class CarteCredit extends CarteBancaire{
         compteING.effectuerVirement(banqueING, compteCible, montant);
     }
 
+    private double totalPaiementsEnAttente(){
+        double totalPaiements = 0;
+        Iterator<Operation> iterateurOp = paiementsEnAttente.iterator();
+        while(iterateurOp.hasNext()){
+            Operation operation = iterateurOp.next();
+            totalPaiements += operation.getMontant();
+        }
+        return totalPaiements;
+    }
 
     public boolean effectuerLesVirements() throws Exception {
         Iterator<Operation> itPaiement = this.paiementsEnAttente.iterator();
