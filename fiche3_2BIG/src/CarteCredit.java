@@ -23,13 +23,14 @@ public abstract class CarteCredit extends CarteBancaire{
 
     public void payer(CompteEnBanque compteCible, double montant) throws Exception {
 
-        Operation op = new Operation(compteCible, montant, 7, 0);
-        this.paiementsEnAttente.add(op);
 
         double totalPaiementsEnAttente = totalPaiementsEnAttente();
         if (totalPaiementsEnAttente > plafond){
             throw new Exception("Plafond dépasser ! Paiement impossible");
         }
+
+        Operation op = new Operation(compteCible, montant, 7, 0);
+        this.paiementsEnAttente.add(op);
 
         CompteEnBanque compteING = banqueING.getCompteCourant();
         compteING.effectuerVirement(banqueING, compteCible, montant);
@@ -65,7 +66,7 @@ public abstract class CarteCredit extends CarteBancaire{
 
         }
             if (virementEffectuable == false){
-                Operation opPaiementInsuffisant =new Operation(cptDeLaBanque, montantIfInsuffisant * 0.1, Operation.VIREMENT_EN_ATTENTE, 0);
+                Operation opPaiementInsuffisant = new Operation(cptDeLaBanque, montantIfInsuffisant * 0.1, Operation.VIREMENT_EN_ATTENTE, 0);
                 this.paiementsEnAttente.add(opPaiementInsuffisant);
             }
 

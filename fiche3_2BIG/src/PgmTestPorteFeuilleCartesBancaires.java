@@ -5,7 +5,7 @@ public class PgmTestPorteFeuilleCartesBancaires {
         Client banqueING = new Client("ING", "Banque", "16 Place Saint-Roch", "12/05/1966", "025472111");
         Client client1 = new Client("Delsine", "Benjamin", "45 Avenue de Charleroi", "25/10/2000", "047565987");;
 
-        CompteCourant cptCourantBanque = new CompteCourant("BE457589", 125045678, 500000);
+        CompteCourant cptCourantBanque = new CompteCourant("BE457589", 120000, 500000);
         CompteCourant cptCourantClient1 = new CompteCourant("BE458912", 5000, 500);
 
         client1.setCompteCourant(cptCourantClient1);
@@ -54,9 +54,17 @@ public class PgmTestPorteFeuilleCartesBancaires {
         }
 
 
+        System.out.println("--------------------------- Suppression des Cartes ------------------------------");
+        iterateurCartes = porteFeuilleCarte.iterator();
 
-
-
-
+        while (iterateurCartes.hasNext()){
+            CarteBancaire carteBancaire = iterateurCartes.next();
+            iterateurCartes.remove();
+            if (porteFeuilleCarte.isEmpty()){
+                System.out.println("Les cartes on été supprimés");
+            } else {
+                System.out.println("ERREUR CARTES(S) ENCORE PRESENTE(S)");
+            }
+        }
     }
 }

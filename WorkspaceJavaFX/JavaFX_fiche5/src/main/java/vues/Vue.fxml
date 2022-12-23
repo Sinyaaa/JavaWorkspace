@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controleurs.Controleur">
+   <children>
+      <TextField fx:id="tfChaine1" layoutX="125.0" layoutY="197.0" onAction="#transformerChaine" />
+      <Label fx:id="lbMessage" layoutX="291.0" layoutY="201.0" prefHeight="18.0" prefWidth="27.0" text="---&gt;" />
+      <TextField fx:id="tfChaine2" layoutX="325.0" layoutY="197.0" />
+   </children>
+</AnchorPane>
